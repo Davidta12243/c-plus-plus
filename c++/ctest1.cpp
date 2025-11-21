@@ -1,3 +1,4 @@
+# 189
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,7 +6,7 @@ int main()
 {
     long long n;
     const long long mod = 1000000007;
-    cin >> n; // nhập số n
+    cin >> n;
 
     long long sum = 0;
     vector<long long> a(n); // khai báo vector chứa phàn tử
@@ -15,11 +16,11 @@ int main()
     }
     for (long long i = 0; i < n; i++)
     {
-        if (a[i] == 0)
-        {
-            break; // dừng tổng khi gặp số 0
-        }
-        sum += a[i];
+        sum = (sum + (i + 1) * (i + 2) * a[i] / 2) % mod;
+    }
+    if (sum < 0)
+    {
+        sum = sum + mod;
     }
     cout << sum;
     return 0;
